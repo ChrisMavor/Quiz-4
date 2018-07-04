@@ -1,19 +1,22 @@
 # Quiz-4
 # Christopher Mavor Quiz 04
-def vectSubtract(vector01, vector02):
+def scalarVectMultiplication(scalar, vector):
     """
-    Checks that inputs are number and are the same length.
-    If vectors are not compatable then error returned
+    Input: Scalar and a vector
+    Iterate over range [length]. During iteration, multiply each element vector[i] by scalar and stores value in vector[i].
+    Output: return vector
     """
+    # type validity check
+    for i in range(len(vector)):
+        if ((type(vector[i]) != int) and (type(vector[i]) != float) and (type(vector[i]) != complex)):
+            eturn ("Invalid Vector") #invalid input
+    if ((type(scalar) != int) and (type(scalar) != float) and 
+        (type(scalar) != complex)):
+        return ("Invalid Scalar") #invalid input
     
-    if(len(vector01) == len(vector02)): #checking vector length
-      vectSubtract = [] #initialize subtraction vector
-      for i in range(0, len(vector01)): #iterate over range
-        vectSubtract.append(vector01[i] - vector02[i]) #compute and append vector elements to end of subtraction vector.
-        return vectSubtract
-
-    else:
-      return ["VectSub ERROR: Vectors are not of equal length."]
+    for i in range(len(vector)): #iterate over range [length-1]
+        vector[i] *= scalar; 
+    return vector;
 
 def dot(vector01, vector02):
     """
@@ -38,24 +41,22 @@ def dot(vector01, vector02):
     
     else: #lengths are not equal.
         return ("Invalid Vector Types") #invalid inputs
-
-def scalarVectMultiplication(scalar, vector):
+def vectSubtract(vector01, vector02):
     """
-    Input: Scalar and a vector
-    Iterate over range [length]. During iteration, multiply each element vector[i] by scalar and stores value in vector[i].
-    Output: return vector
+    Checks that inputs are number and are the same length.
+    If vectors are not compatable then error returned
     """
-    # type validity check
-    for i in range(len(vector)):
-        if ((type(vector[i]) != int) and (type(vector[i]) != float) and (type(vector[i]) != complex)):
-            eturn ("Invalid Vector") #invalid input
-    if ((type(scalar) != int) and (type(scalar) != float) and 
-        (type(scalar) != complex)):
-        return ("Invalid Scalar") #invalid input
     
-    for i in range(0,len(vector)): #iterate over range [0,length-1]
-        vector[i] *= scalar; #short-hand
-    return vector;
+    if(len(vector01) == len(vector02)): #checking vector length
+      vectSubtract = [] #initialize subtraction vector
+      for i in range(0, len(vector01)): #iterate over range
+        vectSubtract.append(vector01[i] - vector02[i]) #compute and append vector elements to end of subtraction vector.
+        return vectSubtract
+
+    else:
+      return ["VectSub ERROR: Vectors are not of equal length."]
+
+
 
 def twoNorm(vector):
     """
